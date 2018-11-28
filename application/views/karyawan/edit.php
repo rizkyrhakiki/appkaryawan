@@ -4,7 +4,7 @@ include APPPATH . '/views/fragment/menu.php';
 ?>
 <main>
 	<div class="row col-sm-10">
-		<form action="<?= base_url('karyawan/tambah_save') ?>" class="form-horizontal"
+		<form action="<?= base_url('karyawan/edit_save') ?>" class="form-horizontal"
 			  name="formtambah"
 			  method="post"
 			  id="formtambah">
@@ -33,7 +33,7 @@ include APPPATH . '/views/fragment/menu.php';
 							$selected = "selected";
 						}
 						?>
-						<option value="<?= $key ?>"<?=$selected ?><?= $value ?></option>
+						<option value="<?= $key ?>"<?=$selected ?>> <?= $value['jabatan'] ?></option>
 						<?php
 					}
 					?>
@@ -44,7 +44,7 @@ include APPPATH . '/views/fragment/menu.php';
 				<?php
 				$checkedL ="";
 				$checkedP = "";
-				if ($jeniskelamin =='L'){
+				if ($karyawan['jeniskelamin'] =='L'){
 					$checkedL = "checked";
 					$checkedP = "";
 				} else {
@@ -63,11 +63,11 @@ include APPPATH . '/views/fragment/menu.php';
 					<?php
 					foreach ($divisi as $key => $value) {
 						$selected = "";
-						if ($value['id'] == $iddivisi) {
+						if ($value['id'] == $karyawan['iddivisi']) {
 							$selected = "selected";
 						}
 						?>
-						<option value="<?= $value['id'] ?>"<?= $selected ?><?= $value['nama'] ?></option>
+						<option value="<?= $value['id'] ?>"<?= $selected ?>><?= $value['nama'] ?></option>
 						<?php
 					}
 					?>

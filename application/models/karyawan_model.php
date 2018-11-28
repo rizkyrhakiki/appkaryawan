@@ -44,5 +44,16 @@ class karyawan_model extends CI_Model
 		return $this->db->delete($this-> table);
 	}
 
+	public function pagination($limit,$start){
+		$this->db->limit($limit,$start);
+		$result = $this->db->get($this->table)->result_array();
 
+		if ($result>0){
+			return $result;
+		}
+		return false;
+	}
+	public function get_total(){
+		return $this->db->count_all($this->table);
+	}
 }
